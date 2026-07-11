@@ -1,0 +1,140 @@
+{
+  "version": 1,
+  "testedAgents": [
+    "codex",
+    "claude-code",
+    "cursor",
+    "gemini-cli",
+    "github-copilot",
+    "opencode"
+  ],
+  "sources": [
+    {
+      "id": "mattpocock-skills",
+      "repository": "https://github.com/mattpocock/skills.git",
+      "trackedRef": "main",
+      "commit": "391a2701dd948f94f56a39f7533f8eea9a859c87",
+      "license": {
+        "spdx": "MIT",
+        "sourcePath": "LICENSE",
+        "destination": "third-party/licenses/mattpocock-skills.txt"
+      },
+      "skills": [
+        {
+          "name": "code-review",
+          "sourcePath": "skills/engineering/code-review",
+          "hash": "sha256:4ee4083282831e320d83532a72df4a09b6a889bce8602fafa65b190230bb5d1b",
+          "dependencies": [],
+          "agents": [
+            "codex",
+            "claude-code",
+            "cursor",
+            "gemini-cli",
+            "github-copilot",
+            "opencode"
+          ]
+        },
+        {
+          "name": "diagnosing-bugs",
+          "sourcePath": "skills/engineering/diagnosing-bugs",
+          "hash": "sha256:9cd36c069ac552cba499e2f99e5c510c00c909a3f41d6799c1cd2ad4a4e7b427",
+          "dependencies": [],
+          "agents": [
+            "codex",
+            "claude-code",
+            "cursor",
+            "gemini-cli",
+            "github-copilot",
+            "opencode"
+          ]
+        },
+        {
+          "name": "grill-me",
+          "sourcePath": "skills/productivity/grill-me",
+          "hash": "sha256:1893fb93ff279dea2940086c99f9c08dc7b755865a67075390afe6f8a7afd6b1",
+          "dependencies": [
+            "grilling"
+          ],
+          "agents": [
+            "codex",
+            "claude-code",
+            "cursor",
+            "gemini-cli",
+            "github-copilot",
+            "opencode"
+          ]
+        },
+        {
+          "name": "grilling",
+          "sourcePath": "skills/productivity/grilling",
+          "hash": "sha256:581995ddd3d361b4d54a12252b39c39625dfe6ebd3173f331a764f98405215b0",
+          "dependencies": [],
+          "agents": [
+            "codex",
+            "claude-code",
+            "cursor",
+            "gemini-cli",
+            "github-copilot",
+            "opencode"
+          ]
+        },
+        {
+          "name": "handoff",
+          "sourcePath": "skills/productivity/handoff",
+          "hash": "sha256:6c26b015ae89421711b0c425eeac6378ea6f2653c55154854a2376b082f30ffb",
+          "dependencies": [],
+          "agents": [
+            "codex",
+            "claude-code",
+            "cursor",
+            "gemini-cli",
+            "github-copilot",
+            "opencode"
+          ]
+        },
+        {
+          "name": "research",
+          "sourcePath": "skills/engineering/research",
+          "hash": "sha256:6d584b3e8bf4622eaa80826a14e6b5ee08abad76e13e3ea8b0218850e369e5c7",
+          "dependencies": [],
+          "agents": [
+            "codex",
+            "claude-code",
+            "cursor",
+            "gemini-cli",
+            "github-copilot",
+            "opencode"
+          ]
+        },
+        {
+          "name": "tdd",
+          "sourcePath": "skills/engineering/tdd",
+          "hash": "sha256:88ed3ac6369591290ed12e64214b48922f696975ca6446d3d7c03a59a47363f2",
+          "dependencies": [],
+          "agents": [
+            "codex",
+            "claude-code",
+            "cursor",
+            "gemini-cli",
+            "github-copilot",
+            "opencode"
+          ]
+        },
+        {
+          "name": "writing-great-skills",
+          "sourcePath": "skills/productivity/writing-great-skills",
+          "hash": "sha256:37830911b62a566fe6a86f9d0520e25814bba19f4b68f2291bfe79f6da1fc913",
+          "dependencies": [],
+          "agents": [
+            "codex",
+            "claude-code",
+            "cursor",
+            "gemini-cli",
+            "github-copilot",
+            "opencode"
+          ]
+        }
+      ]
+    }
+  ]
+}

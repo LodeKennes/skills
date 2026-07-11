@@ -1,0 +1,13 @@
+node_modules/
+
+# Local agent installations are consumer state, not catalog source.
+.agents/
+.claude/skills/
+.codex/skills/
+.cursor/skills/
+.gemini/skills/
+.opencode/skills/
+skills-lock.json
+
+# Interrupted upstream synchronization staging directories.
+.sync-staging-*/

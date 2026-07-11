@@ -1,0 +1,70 @@
+name: Update upstream skills
+
+on:
+  schedule:
+    - cron: "17 6 * * 1"
+  workflow_dispatch:
+
+permissions:
+  actions: write
+  contents: write
+  pull-requests: write
+
+concurrency:
+  group: update-upstream-skills
+  cancel-in-progress: false
+
+jobs:
+  update:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5 # v4
+        with:
+          fetch-depth: 0
+      - uses: actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020 # v4
+        with:
+          node-version: 24
+      - name: Refresh selected mirrors
+        run: npm run sync:update | tee /tmp/upstream-sync.txt
+      - name: Regenerate catalog
+        run: npm run catalog
+      - name: Validate refreshed repository
+        run: npm run check
+      - name: Create reviewable update pull request
+        env:
+          GH_TOKEN: ${{ github.token }}
+        shell: bash
+        run: |
+          if git diff --quiet; then
+            echo "Selected upstream skills are already current."
+            exit 0
+          fi
+
+          branch="automation/upstream-${GITHUB_RUN_ID}-${GITHUB_RUN_ATTEMPT}"
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git switch -c "$branch"
+          git add README.md upstream-lock.json skills third-party
+          git commit \
+            -m "Keep curated skills aligned with reviewed upstream revisions" \
+            -m $'Refresh only the explicitly selected, dependency-complete mirrors and preserve their exact upstream content.\n\nConstraint: Updates must enter master through a reviewable pull request\nConfidence: high\nScope-risk: moderate\nDirective: Never auto-merge upstream skill changes\nTested: npm run check\nNot-tested: semantic behavior inside third-party prompts'
+          git push --set-upstream origin "$branch"
+
+          {
+            echo "## Upstream synchronization"
+            echo
+            echo '```text'
+            cat /tmp/upstream-sync.txt
+            echo '```'
+            echo
+            echo "This pull request is intentionally never auto-merged. Review all prompt and script changes before merging."
+          } >/tmp/pull-request-body.md
+
+          gh pr create \
+            --base master \
+            --head "$branch" \
+            --title "Update selected upstream skills" \
+            --body-file /tmp/pull-request-body.md
+
+          gh workflow run ci.yml --ref "$branch"

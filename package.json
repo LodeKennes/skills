@@ -1,0 +1,22 @@
+{
+  "name": "@lodekennes/skills",
+  "version": "0.0.0",
+  "private": true,
+  "description": "Lode Kennes's curated, cross-agent skills collection",
+  "type": "module",
+  "engines": {
+    "node": ">=24"
+  },
+  "scripts": {
+    "catalog": "node scripts/generate-catalog.mjs",
+    "catalog:check": "node scripts/generate-catalog.mjs --check",
+    "check": "npm run syntax && npm test && npm run validate && npm run sync:check && npm run catalog:check",
+    "smoke": "node scripts/smoke-install.mjs",
+    "sync": "node scripts/sync-upstream.mjs --update",
+    "sync:check": "node scripts/sync-upstream.mjs --check",
+    "sync:update": "node scripts/sync-upstream.mjs --update",
+    "syntax": "node scripts/check-syntax.mjs",
+    "test": "node --test",
+    "validate": "node scripts/validate.mjs"
+  }
+}
