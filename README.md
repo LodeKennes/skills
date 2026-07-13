@@ -56,15 +56,15 @@ Personal skills are maintained here. Selected upstream skills are pinned to an e
 <!-- attribution:start -->
 | Skill | Authoritative source | Revision | License |
 | --- | --- | --- | --- |
-| code-review | [mattpocock-skills](https://github.com/mattpocock/skills/tree/391a2701dd948f94f56a39f7533f8eea9a859c87/skills/engineering/code-review) | [`391a2701dd94`](https://github.com/mattpocock/skills/commit/391a2701dd948f94f56a39f7533f8eea9a859c87) | MIT |
-| diagnosing-bugs | [mattpocock-skills](https://github.com/mattpocock/skills/tree/391a2701dd948f94f56a39f7533f8eea9a859c87/skills/engineering/diagnosing-bugs) | [`391a2701dd94`](https://github.com/mattpocock/skills/commit/391a2701dd948f94f56a39f7533f8eea9a859c87) | MIT |
-| grill-me | [mattpocock-skills](https://github.com/mattpocock/skills/tree/391a2701dd948f94f56a39f7533f8eea9a859c87/skills/productivity/grill-me) | [`391a2701dd94`](https://github.com/mattpocock/skills/commit/391a2701dd948f94f56a39f7533f8eea9a859c87) | MIT |
-| grilling | [mattpocock-skills](https://github.com/mattpocock/skills/tree/391a2701dd948f94f56a39f7533f8eea9a859c87/skills/productivity/grilling) | [`391a2701dd94`](https://github.com/mattpocock/skills/commit/391a2701dd948f94f56a39f7533f8eea9a859c87) | MIT |
-| handoff | [mattpocock-skills](https://github.com/mattpocock/skills/tree/391a2701dd948f94f56a39f7533f8eea9a859c87/skills/productivity/handoff) | [`391a2701dd94`](https://github.com/mattpocock/skills/commit/391a2701dd948f94f56a39f7533f8eea9a859c87) | MIT |
+| code-review | [mattpocock-skills](https://github.com/mattpocock/skills/tree/f15b4dca01e10dca5024c6fcaf2f6a186d0cc9f2/skills/engineering/code-review) | [`f15b4dca01e1`](https://github.com/mattpocock/skills/commit/f15b4dca01e10dca5024c6fcaf2f6a186d0cc9f2) | MIT |
+| diagnosing-bugs | [mattpocock-skills](https://github.com/mattpocock/skills/tree/f15b4dca01e10dca5024c6fcaf2f6a186d0cc9f2/skills/engineering/diagnosing-bugs) | [`f15b4dca01e1`](https://github.com/mattpocock/skills/commit/f15b4dca01e10dca5024c6fcaf2f6a186d0cc9f2) | MIT |
+| grill-me | [mattpocock-skills](https://github.com/mattpocock/skills/tree/f15b4dca01e10dca5024c6fcaf2f6a186d0cc9f2/skills/productivity/grill-me) | [`f15b4dca01e1`](https://github.com/mattpocock/skills/commit/f15b4dca01e10dca5024c6fcaf2f6a186d0cc9f2) | MIT |
+| grilling | [mattpocock-skills](https://github.com/mattpocock/skills/tree/f15b4dca01e10dca5024c6fcaf2f6a186d0cc9f2/skills/productivity/grilling) | [`f15b4dca01e1`](https://github.com/mattpocock/skills/commit/f15b4dca01e10dca5024c6fcaf2f6a186d0cc9f2) | MIT |
+| handoff | [mattpocock-skills](https://github.com/mattpocock/skills/tree/f15b4dca01e10dca5024c6fcaf2f6a186d0cc9f2/skills/productivity/handoff) | [`f15b4dca01e1`](https://github.com/mattpocock/skills/commit/f15b4dca01e10dca5024c6fcaf2f6a186d0cc9f2) | MIT |
 | hello-lode | Lode Kennes | Local | MIT |
-| research | [mattpocock-skills](https://github.com/mattpocock/skills/tree/391a2701dd948f94f56a39f7533f8eea9a859c87/skills/engineering/research) | [`391a2701dd94`](https://github.com/mattpocock/skills/commit/391a2701dd948f94f56a39f7533f8eea9a859c87) | MIT |
-| tdd | [mattpocock-skills](https://github.com/mattpocock/skills/tree/391a2701dd948f94f56a39f7533f8eea9a859c87/skills/engineering/tdd) | [`391a2701dd94`](https://github.com/mattpocock/skills/commit/391a2701dd948f94f56a39f7533f8eea9a859c87) | MIT |
-| writing-great-skills | [mattpocock-skills](https://github.com/mattpocock/skills/tree/391a2701dd948f94f56a39f7533f8eea9a859c87/skills/productivity/writing-great-skills) | [`391a2701dd94`](https://github.com/mattpocock/skills/commit/391a2701dd948f94f56a39f7533f8eea9a859c87) | MIT |
+| research | [mattpocock-skills](https://github.com/mattpocock/skills/tree/f15b4dca01e10dca5024c6fcaf2f6a186d0cc9f2/skills/engineering/research) | [`f15b4dca01e1`](https://github.com/mattpocock/skills/commit/f15b4dca01e10dca5024c6fcaf2f6a186d0cc9f2) | MIT |
+| tdd | [mattpocock-skills](https://github.com/mattpocock/skills/tree/f15b4dca01e10dca5024c6fcaf2f6a186d0cc9f2/skills/engineering/tdd) | [`f15b4dca01e1`](https://github.com/mattpocock/skills/commit/f15b4dca01e10dca5024c6fcaf2f6a186d0cc9f2) | MIT |
+| writing-great-skills | [mattpocock-skills](https://github.com/mattpocock/skills/tree/f15b4dca01e10dca5024c6fcaf2f6a186d0cc9f2/skills/productivity/writing-great-skills) | [`f15b4dca01e1`](https://github.com/mattpocock/skills/commit/f15b4dca01e10dca5024c6fcaf2f6a186d0cc9f2) | MIT |
 <!-- attribution:end -->
 
 ## Maintenance
