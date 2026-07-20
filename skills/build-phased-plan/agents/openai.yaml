@@ -1,0 +1,4 @@
+interface:
+  display_name: "Build Phased Plan"
+  short_description: "Create phased, commit-ready plans with review gates"
+  default_prompt: "Use $build-phased-plan to create a phased implementation plan with task commits and independent AI review gates."
