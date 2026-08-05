@@ -11,3 +11,4 @@ skills-lock.json
 
 # Interrupted upstream synchronization staging directories.
 .sync-staging-*/
+.DS_Store
