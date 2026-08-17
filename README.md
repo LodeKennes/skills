@@ -36,6 +36,7 @@ The repository verifies installation for Codex, Claude Code, Cursor, Gemini CLI,
 <!-- catalog:start -->
 | Skill | Origin | Compatibility | Description |
 | --- | --- | --- | --- |
+| [build-phased-plan](skills/build-phased-plan/SKILL.md) | Personal | All tested agents | Create executable implementation plans organized into phases and Markdown-checkbox subtasks, with stable plan/task references, one incremental commit per task, one stacked-PR series per phase, mandatory technical PR descriptions, and independent Opus review gates. Use when asked to build, draft, structure, or revise a delivery plan, engineering plan, migration plan, refactor plan, or other multi-phase work plan that must be commit-ready and independently reviewed. |
 | [code-review](skills/code-review/SKILL.md) | mattpocock-skills | All tested agents | Review the changes since a fixed point (commit, branch, tag, or merge-base) along two axes — Standards (does the code follow this repo's documented coding standards?) and Spec (does the code match what the originating issue/PRD asked for?). Runs both reviews in parallel sub-agents and reports them side by side. Use when the user wants to review a branch, a PR, work-in-progress changes, or asks to "review since X". |
 | [diagnosing-bugs](skills/diagnosing-bugs/SKILL.md) | mattpocock-skills | All tested agents | Diagnosis loop for hard bugs and performance regressions. Use when the user says "diagnose"/"debug this", or reports something broken/throwing/failing/slow. |
 | [grill-me](skills/grill-me/SKILL.md) | mattpocock-skills | All tested agents | A relentless interview to sharpen a plan or design. |
@@ -56,6 +57,7 @@ Personal skills are maintained here. Selected upstream skills are pinned to an e
 <!-- attribution:start -->
 | Skill | Authoritative source | Revision | License |
 | --- | --- | --- | --- |
+| build-phased-plan | Lode Kennes | Local | MIT |
 | code-review | [mattpocock-skills](https://github.com/mattpocock/skills/tree/391a2701dd948f94f56a39f7533f8eea9a859c87/skills/engineering/code-review) | [`391a2701dd94`](https://github.com/mattpocock/skills/commit/391a2701dd948f94f56a39f7533f8eea9a859c87) | MIT |
 | diagnosing-bugs | [mattpocock-skills](https://github.com/mattpocock/skills/tree/391a2701dd948f94f56a39f7533f8eea9a859c87/skills/engineering/diagnosing-bugs) | [`391a2701dd94`](https://github.com/mattpocock/skills/commit/391a2701dd948f94f56a39f7533f8eea9a859c87) | MIT |
 | grill-me | [mattpocock-skills](https://github.com/mattpocock/skills/tree/391a2701dd948f94f56a39f7533f8eea9a859c87/skills/productivity/grill-me) | [`391a2701dd94`](https://github.com/mattpocock/skills/commit/391a2701dd948f94f56a39f7533f8eea9a859c87) | MIT |
