@@ -57,9 +57,23 @@ export function parseFrontmatter(content, source = "SKILL.md") {
   }
 
   const frontmatter = {};
-  for (const line of match[1].split(/\r?\n/)) {
-    const field = line.match(/^([A-Za-z][A-Za-z0-9_-]*):(?:\s*(.*))?$/);
-    if (field) frontmatter[field[1]] = parseScalar(field[2] ?? "");
+  const lines = match[1].split(/\r?\n/);
+  for (let index = 0; index < lines.length; index += 1) {
+    const field = lines[index].match(/^([A-Za-z][A-Za-z0-9_-]*):(?:\s*(.*))?$/);
+    if (!field) continue;
+    const value = field[2] ?? "";
+    if (value === ">" || value === "|") {
+      const block = [];
+      while (index + 1 < lines.length && (lines[index + 1] === "" || /^\s+/.test(lines[index + 1]))) {
+        index += 1;
+        block.push(lines[index].replace(/^ {2}/, ""));
+      }
+      frontmatter[field[1]] = value === ">"
+        ? block.join(" ").replace(/\s+/g, " ").trim()
+        : block.join("\n").trim();
+    } else {
+      frontmatter[field[1]] = parseScalar(value);
+    }
   }
   return { frontmatter, body: content.slice(match[0].length) };
 }

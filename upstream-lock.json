@@ -10,6 +10,33 @@
   ],
   "sources": [
     {
+      "id": "ponytail",
+      "repository": "https://github.com/DietrichGebert/ponytail.git",
+      "trackedRef": "main",
+      "commit": "974d940a1c5344210874150b98ff0d2c861fab6a",
+      "license": {
+        "spdx": "MIT",
+        "sourcePath": "LICENSE",
+        "destination": "third-party/licenses/ponytail.txt"
+      },
+      "skills": [
+        {
+          "name": "ponytail",
+          "sourcePath": "skills/ponytail",
+          "hash": "sha256:00477e0e9e97b8ca7361c3534b60b16449c15af6dd881c991463dab12d915ba8",
+          "dependencies": [],
+          "agents": [
+            "codex",
+            "claude-code",
+            "cursor",
+            "gemini-cli",
+            "github-copilot",
+            "opencode"
+          ]
+        }
+      ]
+    },
+    {
       "id": "mattpocock-skills",
       "repository": "https://github.com/mattpocock/skills.git",
       "trackedRef": "main",

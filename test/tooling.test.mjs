@@ -35,6 +35,11 @@ test("frontmatter parser reads required fields", () => {
   assert.equal(parsed.body, "Body\n");
 });
 
+test("frontmatter parser reads folded multiline values", () => {
+  const parsed = parseFrontmatter('---\nname: hello\ndescription: >\n  Hello\n  world.\n---\nBody\n');
+  assert.equal(parsed.frontmatter.description, "Hello world.");
+});
+
 test("frontmatter parser rejects missing delimiters", () => {
   assert.throws(() => parseFrontmatter("name: broken\n"), /missing YAML frontmatter/);
 });
