@@ -162,6 +162,118 @@
           ]
         }
       ]
+    },
+    {
+      "id": "ui-ux-pro-max-skill",
+      "repository": "https://github.com/nextlevelbuilder/ui-ux-pro-max-skill.git",
+      "trackedRef": "main",
+      "commit": "f3ac195224eac1eb0dfe1a3059c2a6add78ffbe3",
+      "discoveryPath": ".claude/skills",
+      "license": {
+        "spdx": "MIT",
+        "sourcePath": "LICENSE",
+        "destination": "third-party/licenses/ui-ux-pro-max-skill.txt"
+      },
+      "skills": [
+        {
+          "name": "banner-design",
+          "sourcePath": ".claude/skills/banner-design",
+          "hash": "sha256:cf81a6d44919352fb6f32aff0030a2d6f06f252fb88ea2a1d383bacde815ebb1",
+          "dependencies": [],
+          "agents": [
+            "codex",
+            "claude-code",
+            "cursor",
+            "gemini-cli",
+            "github-copilot",
+            "opencode"
+          ]
+        },
+        {
+          "name": "brand",
+          "sourcePath": ".claude/skills/brand",
+          "hash": "sha256:679e6e3e03d3025583b0655a69a5416d118d7da657a240ea6079c78be797949b",
+          "dependencies": [],
+          "agents": [
+            "codex",
+            "claude-code",
+            "cursor",
+            "gemini-cli",
+            "github-copilot",
+            "opencode"
+          ]
+        },
+        {
+          "name": "design",
+          "sourcePath": ".claude/skills/design",
+          "hash": "sha256:3435f1b4b77274aca4c0ba765ec450bbdfd13546d647d64917e46b62c9b0ca64",
+          "dependencies": [],
+          "agents": [
+            "codex",
+            "claude-code",
+            "cursor",
+            "gemini-cli",
+            "github-copilot",
+            "opencode"
+          ]
+        },
+        {
+          "name": "design-system",
+          "sourcePath": ".claude/skills/design-system",
+          "hash": "sha256:0a58131765a9d53dbd09543422cd1970d7be56a9aac85d5990114eb782592a67",
+          "dependencies": [],
+          "agents": [
+            "codex",
+            "claude-code",
+            "cursor",
+            "gemini-cli",
+            "github-copilot",
+            "opencode"
+          ]
+        },
+        {
+          "name": "slides",
+          "sourcePath": ".claude/skills/slides",
+          "hash": "sha256:1ee15957753899e1940c4ed105564dcd8b27f99a2890df291fe1f7d51283f50c",
+          "dependencies": [],
+          "agents": [
+            "codex",
+            "claude-code",
+            "cursor",
+            "gemini-cli",
+            "github-copilot",
+            "opencode"
+          ]
+        },
+        {
+          "name": "ui-styling",
+          "sourcePath": ".claude/skills/ui-styling",
+          "hash": "sha256:1b0da0573345ca8903b6afb3c3357bfb6fd2c6b28682b100d053c602cbe09a1a",
+          "dependencies": [],
+          "agents": [
+            "codex",
+            "claude-code",
+            "cursor",
+            "gemini-cli",
+            "github-copilot",
+            "opencode"
+          ]
+        },
+        {
+          "name": "ui-ux-pro-max",
+          "sourcePath": ".claude/skills/ui-ux-pro-max",
+          "hash": "sha256:93085d81cdf5a14466b650dbe2763f0f0ef064f624a4876db81c5cd9f6ef87e3",
+          "dependencies": [],
+          "agents": [
+            "codex",
+            "claude-code",
+            "cursor",
+            "gemini-cli",
+            "github-copilot",
+            "opencode"
+          ]
+        }
+      ]
     }
   ]
 }

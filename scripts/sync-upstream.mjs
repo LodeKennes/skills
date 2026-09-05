@@ -46,7 +46,11 @@ async function checkout(source, revision) {
 async function inspectSource(source, repository, stageRoot, update) {
   const stagedSkills = [];
   const selectedNames = new Set(source.skills.map((skill) => skill.name));
-  const discovered = await discoverSkills(resolve(repository, "skills"));
+  const discoveryDirectory = source.discoveryPath ?? "skills";
+  const discoveryRoot = resolve(repository, discoveryDirectory);
+  const discovered = (await pathExists(discoveryRoot))
+    ? await discoverSkills(discoveryRoot)
+    : [];
   const newlyDiscovered = discovered
     .filter((skill) => !selectedNames.has(skill.name))
     .map((skill) => `${skill.name} (${skill.relativePath})`);
@@ -127,7 +131,7 @@ async function inspectSource(source, repository, stageRoot, update) {
   return { stagedSkills, stagedLicense, newlyDiscovered };
 }
 
-export async function synchronize({ update }) {
+export async function synchronize({ update, sourceId }) {
   assertNode24();
   const lockPath = resolve(projectRoot, "upstream-lock.json");
   const lock = await readJson(lockPath);
@@ -140,6 +144,7 @@ export async function synchronize({ update }) {
 
   try {
     for (const source of lock.sources) {
+      if (sourceId && source.id !== sourceId) continue;
       const checkoutResult = await checkout(source, update ? undefined : source.commit);
       try {
         const inspection = await inspectSource(
@@ -188,13 +193,19 @@ export async function synchronize({ update }) {
   }
 }
 
+function argumentValue(name) {
+  const index = process.argv.indexOf(name);
+  return index >= 0 ? process.argv[index + 1] : undefined;
+}
+
 async function main() {
   const check = process.argv.includes("--check");
   const update = process.argv.includes("--update");
   if (check === update) {
     throw new Error("Choose exactly one mode: --check or --update");
   }
-  await synchronize({ update });
+  const sourceId = argumentValue("--source");
+  await synchronize({ update, sourceId });
 }
 
 if (import.meta.url === pathToFileURL(process.argv[1]).href) {

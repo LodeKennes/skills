@@ -261,6 +261,10 @@ export function validateUpstreamLock(lock) {
     if (!commitPattern.test(source.commit ?? "")) errors.push(`${source.id}: commit must be a 40-character SHA`);
     if (!Array.isArray(source.skills)) errors.push(`${source.id}: skills must be an array`);
 
+    if (source.discoveryPath !== undefined && !isSafeManifestPath(source.discoveryPath)) {
+      errors.push(`${source.id}: unsafe discovery path ${source.discoveryPath}`);
+    }
+
     if (source.license?.sourcePath && !isSafeManifestPath(source.license.sourcePath)) {
       errors.push(`${source.id}: unsafe license source path ${source.license.sourcePath}`);
     }

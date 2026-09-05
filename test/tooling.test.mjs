@@ -202,6 +202,7 @@ test("upstream lock rejects traversal paths and unsafe clone URLs", () => {
         repository: "ext::sh -c exploit",
         trackedRef: "main",
         commit: "a".repeat(40),
+        discoveryPath: "../outside",
         license: {
           sourcePath: "LICENSE",
           destination: "../LICENSE",
@@ -222,4 +223,5 @@ test("upstream lock rejects traversal paths and unsafe clone URLs", () => {
   assert.ok(errors.some((error) => error.includes("HTTPS GitHub clone URL")));
   assert.ok(errors.some((error) => error.includes("unsafe source path")));
   assert.ok(errors.some((error) => error.includes("unsafe license destination")));
+  assert.ok(errors.some((error) => error.includes("unsafe discovery path")));
 });
