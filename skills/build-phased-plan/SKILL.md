@@ -17,7 +17,7 @@ State the objective, scope, and observable acceptance criteria. Choose the small
 
 ## 2. Define task contracts
 
-Choose an unused three-character uppercase alphanumeric plan reference containing a letter. For new tasks allocate append-only IDs such as `#APIT001`. Preserve existing IDs when revising a plan, including legacy `#APIP1T1` IDs; retire superseded IDs with a replacement link.
+Choose an unused three-character uppercase alphanumeric plan reference containing a letter. New task IDs are `#` + that reference + `T` + append-only digits, such as `#APIT001` for reference `API`. Preserve existing IDs when revising a plan, including legacy `#APIP1T1` IDs; retire superseded IDs with a replacement link.
 
 Write each task as a Markdown checkbox followed by its contract:
 
