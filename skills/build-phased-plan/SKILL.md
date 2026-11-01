@@ -1,221 +1,86 @@
 ---
 name: build-phased-plan
-description: Create executable implementation plans organized into phases and Markdown-checkbox subtasks, with stable plan/task references, one incremental commit per task, one stacked-PR series per phase, mandatory technical PR descriptions, and independent Opus review gates. Use when asked to build, draft, structure, or revise a delivery plan, engineering plan, migration plan, refactor plan, or other multi-phase work plan that must be commit-ready and independently reviewed.
+description: Dependency-graph planning for parallel implementation. Use when drafting an engineering delivery plan, converting a sequential plan into concurrent workstreams, or revising a plan after dependencies change.
 ---
 
-# Build Phased Plan
+# Build Parallel Plans
 
-Create a dependency-aware plan that an implementation agent can execute task by task. Make every task independently verifiable and commit-sized. Model delivery as stacked pull requests (PRs): each phase is a new stack, and each task that changes the repository is one ordered PR in that phase's stack.
+Build an executable **dependency graph** with bounded task contracts, safe parallel work, and explicit integration. Keep `$build-phased-plan` as the invocation. Planning produces proposed work and gates; execution requires the user's authorization for those actions.
 
-## Build the plan
+## 1. Ground the outcome
 
-1. Inspect the relevant repository, requirements, and local guidance before planning. Do not invent file paths, commands, or existing behavior.
-2. State the objective, scope, assumptions, acceptance criteria, and known risks.
-3. Choose a unique three-character plan reference, called `XXX`, from the plan title. Use uppercase ASCII letters or digits, with at least one letter. Record it near the top as `Plan reference: XXX`.
-4. Divide the work into ordered phases. Give each phase a concrete outcome and completion criteria.
-5. Break each phase into small, dependency-ordered tasks. Format every task as an unchecked Markdown checkbox.
-6. Give every task a stable identifier in the form `#XXXPnTm`, where `XXX` is the plan reference, `n` is the phase number, and `m` is the task number within that phase. Start both numbers at 1 and never reuse an identifier.
-7. Attach exactly one incremental commit message to every task. Format it as `#XXXPnTm: [imperative message]`. The prefix must exactly match the task identifier.
-8. Assign every repository-changing task to a PR in the current phase's stack. Record the stack's base branch, parent PR, and bottom-to-top merge order.
-9. Make the final task of every phase an independent AI-agent review gate. Do not place ordinary implementation tasks after it in that phase.
-10. Check the plan for the validation rules below before returning it.
+Inspect requirements, repository guidance, relevant code, and existing validation entrypoints. Record the target branch and starting revision. Distinguish observed facts from assumptions; identify external prerequisites and decisions that would change task boundaries.
 
-## Use stacked PRs
+State the objective, scope, and observable acceptance criteria. Choose the smallest useful plan: one task is valid when the work has no independent branches. Investigate uncertain contracts with a bounded discovery task whose output enables the remaining decomposition.
 
-Every phase must be a new stack. A new stack has a distinct stack name or prefix and is created from the target branch updated with the approved result of the preceding phase. Do not append Phase 2 PRs to an open Phase 1 stack. Phase 1 starts from the repository's target branch; later phases start from the target branch after the preceding phase has been approved and integrated.
+**Done:** every requested outcome has an acceptance criterion, and every unresolved assumption has an owner and a resolution condition.
 
-Within a phase:
+## 2. Define task contracts
 
-- Create one PR per repository-changing task, in task/dependency order. Each PR contains exactly that task's incremental commit relative to its immediate parent PR.
-- Set each PR's base to the immediately preceding PR in the same stack, except the bottom PR, which targets the phase stack base. Merge bottom-to-top only; never merge a child before its parent.
-- Keep the stack linear and reviewable. If review remediation is needed, add a new remediation task and PR above the affected PR, then repeat the required review of the updated PR and stack.
-- Treat the final review-gate task as the top PR when it records review evidence in the repository. It must not hide implementation changes.
+Choose an unused three-character uppercase alphanumeric plan reference containing a letter. For new tasks allocate append-only IDs such as `#APIT001`. Preserve existing IDs when revising a plan, including legacy `#APIP1T1` IDs; retire superseded IDs with a replacement link.
 
-Each phase in the plan must explicitly include:
+Write each task as a Markdown checkbox followed by its contract:
 
 ```markdown
-Stack: `<phase-stack-name>`
-Base: `<target-branch or approved preceding-phase tip>`
-PR order: `<bottom PR>` -> `<next PR>` -> `<top PR>`
+- [ ] #APIT001 <observable outcome>
+  - Owner: <one accountable role>; write scope: <files/modules/artifact area>
+  - Inputs / depends on: <task IDs or external conditions, consumed artifacts, release evidence; none for a root>
+  - Output: <artifact/interface, compatibility obligations, handoff destination>
+  - Acceptance: <check and expected result>; evidence location: <where results will be recorded>
+  - Conflicts / resources: <shared write areas, exclusive environments, capacity; none when checked>
+  - Delivery: <branch/base and PR grouping, or non-code handoff>; commit: <task-ID-prefixed imperative message, or N/A with reason>
 ```
 
-## Require a technical PR description
+Split at independently verifiable outputs. Include behavior and its tests together. Extract a shared interface, fixture, or contract test before its consumers when that unlocks useful parallel work. Each task must be executable from its contract and cited inputs without the planner's conversation.
 
-Every PR, including remediation and review-record PRs, must have a clear description written for a technical reviewer. The description must explain the problem, the exact change, the files or modules affected, non-goals, dependencies/stack position, verification evidence, and known risks or follow-ups. It must include a readable Mermaid diagram that describes the changed control flow, data flow, module relationship, or state transition. Use a fenced `mermaid` block; the diagram must be specific to that PR and technically useful, not decorative.
+**Done:** every task has all contract fields, bounded ownership, and observable acceptance evidence; each acceptance criterion maps to tasks and checks.
 
-For every PR task, include or generate a description with this shape:
+## 3. Construct the dependency graph
 
-````markdown
-## What this PR does
-<problem, intent, exact behavior or structure changed>
+Use `producer -> consumer` edges. Record a prerequisite only when the consumer needs an accepted output or an explicit safety/approval condition, with the artifact and release condition explaining why. List direct prerequisites; derive transitive dependencies rather than copying them into every task.
 
-## Scope
-- Changed: `<files/modules/artifacts>`
-- Not changed: `<explicit non-goals>`
+Keep **resource conflicts** separate: two tasks sharing an editor scope, schema, lockfile, generator, deployment environment, or reviewer may need exclusive access without depending on each other's output. Assign one owner or a scheduling constraint. Separate worktrees isolate checkouts; semantic coupling still needs a contract or integration check.
 
-## Stack position
-<stack name, PR number/order, base PR, and dependency rationale>
+Treat phases as outcome milestones. Add a milestone barrier only for a stated acceptance or safety requirement; task numbering, headings, and presentation order create no dependencies. For cross-component fan-in, add an integration task with an owner, exact input revisions to record at execution, and combined checks.
 
-## Technical flow
-```mermaid
-flowchart TD
-    A[Existing input or caller] --> B[Changed component]
-    B --> C[Observable result or downstream component]
-```
+Resolve cycles by moving a shared contract earlier, combining inseparable work, or introducing discovery. Read [graph-patterns.md](references/graph-patterns.md) when decomposing coupled components, analyzing bottlenecks, or checking fan-out/fan-in behavior.
 
-## Verification
-<commands and results, including focused and relevant broader checks>
+**Done:** every prerequisite resolves, every edge has a release condition, the graph has a topological ordering, and every output reaches an acceptance criterion or necessary integration gate. Missing inputs, self-edges, and cycles are explicit blockers to an executable plan.
 
-## Risks and review notes
-<invariants, compatibility concerns, and specific areas for review>
-````
+## 4. Determine readiness and capacity
 
-The plan must identify the concrete description content for each PR; do not use a generic diagram or a placeholder description in a delivered plan.
+**Ready** means all required inputs and approvals are accepted. Dispatch additionally requires a free owner, conflict clearance, and resource capacity. Recompute the ready set after each completion or relevant change; release a ready consumer while unrelated work continues. A wave is a schedule illustration, never an implicit barrier.
 
-## Require a clean Opus review for every PR
+Name the initial ready tasks and external blockers. State the concurrency cap and its basis: agents, isolated checkouts, review capacity, test environments, or budget. If capacity is unknown, label the assumption; one executor can run the same graph serially.
 
-Every PR must receive an independent review by Opus using the Claude CLI command form `claude -p "prompt" --model opus`. The review prompt must tell Opus to inspect the PR diff and evidence, load and apply the repository's review guidance, and use the right review skills for the code being changed. At minimum, load and name the repository's standards/spec review skill (`code-review` when available) plus every applicable language, framework, testing, security, performance, or database review skill. Record the exact skill names or paths used; do not substitute a generic “review the code” prompt for skill-guided review.
+Identify the longest prerequisite chains and bottlenecks. Estimate a time-based critical path only with defensible task duration ranges; state uncertainty and distinguish this dependency-only lower bound from the resource-constrained schedule. Prioritize ready tasks that unblock the bottleneck, then use task ID to break otherwise equal ties.
 
-Use a prompt equivalent to this, adapted to the repository and PR:
+**Done:** the initial dispatch set fits ownership and capacity constraints, with a reason for every ready task deferred and every proposed serialization.
 
-```sh
-claude -p "Act as an independent technical reviewer for PR <PR/task identifier>. Load and apply the repository's review guidance and these relevant review skills: <skill names or paths>. Inspect only the PR diff, its parent stack diff, the PR description, and the cited verification evidence. Check correctness, regressions, scope control, test adequacy, security/performance implications, and compliance with the stated contract. Report findings by severity with concrete file/line references. If there are no actionable findings, state CLEAN REVIEW explicitly." --model opus
-```
+## 5. Plan delivery, review, and recovery
 
-The PR is not clean until Opus reports no unresolved actionable findings. Resolve every finding, rerun affected checks, update the PR description/evidence, and rerun the same review on the updated diff. Record the command, selected review skills, Opus output, findings/resolutions, checks rerun, commit/PR identity, and final `CLEAN REVIEW` verdict in the repository's established review artifact or, if none exists, in the plan's review record. A phase cannot complete until every PR in its stack is clean and the final phase-level review gate approves the complete stack.
+Map task outputs to repository delivery units independently of the execution graph. Independent branches may share a known base; short stacks express real code dependencies. Group tasks in one PR only when the resulting change remains coherent and independently reviewable. Keep each implementation task one logical commit where the repository permits it; non-code checks and review gates may use `N/A` instead of synthetic commits.
 
-## Write actionable tasks
+For concurrent implementation or multiple PRs, read [delivery.md](references/delivery.md) before specifying branch topology, integration ownership, and handoffs. Follow active repository model policy and available orchestration tools for independent reviewers; record an unavailable reviewer as a blocked gate rather than an invented approval.
 
-Each task must identify:
+Specify independent review for each implementation PR (or equivalent change unit) and for integrated milestone behavior. Reviewers inspect requirements, applicable review guidance/skills, exact revisions, and validation evidence. Approval requires disposition of actionable findings and affected checks rerun. Record reviewer identity, reviewed inputs, findings/resolutions, and verdict in the established review record. A relevant input or code change invalidates affected checks and approvals.
 
-- the intended change or review;
-- the concrete files, modules, or artifact area when discoverable;
-- the verification or acceptance evidence;
-- the phase stack, PR position, parent PR, and technical PR description including a task-specific Mermaid diagram;
-- the required Opus review command, applicable review skills, and durable clean-review evidence;
-- its exact commit message.
+On failure, hold affected descendants and retain unrelated accepted work. Assign remediation, update changed contracts/edges, and revalidate affected consumers before release. Record safe retry or rollback conditions for external side effects. A join accepts all required inputs; a failed or skipped prerequisite requires explicit replanning.
 
-Keep one logical change per task and one task per commit. Split a task when it spans unrelated concerns or cannot be reviewed safely as one commit. Include tests in the same task as the behavior they protect unless a separate test-only task has a clear dependency reason.
+**Done:** every delivery unit has a base/handoff, reviewer gate, and integration destination; each milestone has combined acceptance evidence and an owner; failure and contract-change handling identify what blocks and what can continue.
 
-Use this shape:
+## 6. Audit and deliver
 
-```markdown
-- [ ] #APIP1T1 Define the request validation contract in `src/api/validation.ts`.
-  - Evidence: Focused validation tests pass for valid and invalid payloads.
-  - PR: Phase 1 stack `api-validation-1`, bottom PR targeting `main`; include the technical description and task-specific Mermaid diagram required above.
-  - Opus review: Run `claude -p "..." --model opus` with the repository's applicable review skills; record the output and final `CLEAN REVIEW` verdict.
-  - Commit: `#APIP1T1: Define request validation contract`
-```
+Walk the graph against the task contracts: check unique stable IDs, resolved prerequisites, acyclicity, justified edges, conflict ownership, feasible dispatch, and acceptance coverage. Trace a fan-out/fan-in and one failed prerequisite if present. Use [examples.md](references/examples.md) when checking those behaviors or adapting a nontrivial plan.
 
-## Require an independent review gate
+Return Markdown containing:
 
-End every phase with a task assigned to an AI agent that did not author that phase's changes. Require the reviewer to inspect the phase diff and verification evidence for correctness, regressions, scope control, test adequacy, and compliance with repository guidance.
+- Objective, scope, acceptance criteria, plan reference, repository baseline, and assumptions.
+- Task contracts and the dependency edge list; add a diagram only when it clarifies the graph.
+- Milestones, initial dispatch set, concurrency constraints, and bottleneck analysis.
+- Delivery mapping, independent review/integration gates, and recovery rules.
+- An audit result distinguishing checks actually performed on the plan from future execution checks.
 
-The review task must:
+Save at the user/repository-specified location; otherwise return the plan directly. Replace template placeholders with discovered values or explicit unresolved conditions. Keep unexecuted tasks unchecked and execution evidence marked pending. If blockers remain, label the plan provisional and name their resolution conditions.
 
-- be the highest-numbered and final task in the phase;
-- depend on all earlier tasks in that phase;
-- name the required independent reviewer role, such as `code-reviewer` or `verifier`;
-- require actionable findings to be resolved and relevant checks rerun before approval;
-- require the complete phase stack to have a clean Opus review for every PR, using `claude -p "prompt" --model opus` with the applicable review skills;
-- record the review outcome in a durable project artifact when the repository has an established location for it, or in the plan's review record otherwise;
-- include a technical PR description with a task-specific Mermaid diagram if the review gate is represented by a PR;
-- have its own task-matching incremental commit message;
-- block phase completion until the independent agent approves the phase.
-
-Use this shape:
-
-```markdown
-- [ ] #APIP1T3 Independent AI review gate (owner: a separate `code-reviewer` agent; depends on #APIP1T1 and #APIP1T2).
-  - Review: Inspect the complete Phase 1 stack diff and evidence; report findings by severity. Confirm every PR in the stack has a clean Opus review using `claude -p "..." --model opus` and the applicable review skills.
-  - Exit: Resolve all blocking findings, rerun affected checks, rerun Opus on updated PRs, and record approval before Phase 2 starts.
-  - Evidence: Review record identifies the independent agent, stack/PR identities, Opus commands and skills, findings, resolutions, checks rerun, and final verdict.
-  - Commit: `#APIP1T3: Record independent Phase 1 review`
-```
-
-If a review produces fixes, amend the review task's single commit only while it remains local and unshared. Otherwise add a new remediation task and commit in the same phase, then run a new final independent review task with the next task number. Never mark the phase complete with unresolved blocking findings.
-
-## Use this output template
-
-```markdown
-# <Plan title>
-
-Plan reference: XXX
-
-## Objective
-
-<Desired outcome>
-
-## Scope
-
-- In: <included work>
-- Out: <excluded work>
-
-## Acceptance criteria
-
-- <observable success condition>
-
-## Assumptions and risks
-
-- <assumption or risk with mitigation>
-
-## Phase 1 — <phase outcome>
-
-Completion criteria: <observable phase exit condition, including independent approval>
-
-Stack: `<phase-1-stack-name>`  
-Base: `<target branch>`  
-PR order: `<bottom PR>` -> `<next PR>` -> `<top PR>`
-
-- [ ] #XXXP1T1 <task>
-  - Evidence: <verification>
-  - PR: <stack position, parent PR, technical description, and task-specific Mermaid diagram>
-  - Opus review: <exact `claude -p "prompt" --model opus` review command, applicable skills, and clean-review record>
-  - Commit: `#XXXP1T1: <imperative message>`
-- [ ] #XXXP1T2 Independent AI review gate (owner: a separate `<reviewer-role>` agent; depends on #XXXP1T1).
-  - Review: <complete stack review scope, including confirmation that every PR has a clean Opus review>
-  - Exit: <finding-resolution, rerun, Opus, and approval requirements>
-  - Evidence: <durable review record with stack/PR identities, commands, skills, findings, checks, and final verdict>
-  - Commit: `#XXXP1T2: Record independent Phase 1 review`
-
-## Phase 2 — <phase outcome>
-
-Completion criteria: <observable phase exit condition, including independent approval>
-
-Stack: `<phase-2-stack-name>`  
-Base: `<target branch at the approved Phase 1 tip>`  
-PR order: `<bottom PR>` -> `<next PR>` -> `<top PR>`
-
-- [ ] #XXXP2T1 <task>
-  - Evidence: <verification>
-  - PR: <stack position, parent PR, technical description, and task-specific Mermaid diagram>
-  - Opus review: <exact `claude -p "prompt" --model opus` review command, applicable skills, and clean-review record>
-  - Commit: `#XXXP2T1: <imperative message>`
-- [ ] #XXXP2T2 Independent AI review gate (owner: a separate `<reviewer-role>` agent; depends on #XXXP2T1).
-  - Review: <complete stack review scope, including confirmation that every PR has a clean Opus review>
-  - Exit: <finding-resolution, rerun, Opus, and approval requirements>
-  - Evidence: <durable review record with stack/PR identities, commands, skills, findings, checks, and final verdict>
-  - Commit: `#XXXP2T2: Record independent Phase 2 review`
-```
-
-Add or remove phases and tasks to fit the work. Do not emit placeholder text in the final plan.
-
-## Validate before delivery
-
-Confirm all of the following:
-
-- Every task line begins with `- [ ]`.
-- Every task identifier matches `#XXXPnTm` and uses the declared plan reference.
-- Phase and task numbering is consecutive.
-- Every task has exactly one `Commit:` entry whose prefix exactly matches its task identifier.
-- Each task is small, ordered, actionable, and independently verifiable.
-- Every phase declares a distinct new stack with a base and bottom-to-top PR order.
-- Every repository-changing task maps to exactly one PR in its phase stack, with the immediate parent PR recorded.
-- Every PR has a clear, task-specific technical description containing scope, verification, risks, and a fenced Mermaid diagram.
-- Every PR has a recorded clean Opus review run as `claude -p "prompt" --model opus` with the applicable review skills named.
-- The final task in every phase is an independent AI-agent review gate.
-- Each review gate blocks the next phase until all PR findings are resolved, checks are rerun, every PR is clean under Opus review, and approval is recorded.
-- Phase completion criteria include independent approval.
-- No task depends on work scheduled in a later phase.
-
-Return the plan in Markdown. Save it only when the user or repository workflow specifies a plan-file location; otherwise present it directly.
+**Done:** the plan passes the audit or clearly reports its blockers; planned tests, reviews, and approvals are never presented as completed execution.
