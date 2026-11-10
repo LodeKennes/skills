@@ -274,6 +274,438 @@
           ]
         }
       ]
+    },
+    {
+      "id": "anthropics-skills",
+      "repository": "https://github.com/anthropics/skills.git",
+      "trackedRef": "main",
+      "commit": "2c5958ecac7cee2b583967a2c4981d0f4a75c579",
+      "license": {
+        "spdx": "Apache-2.0",
+        "sourcePath": "skills/academy-guide/LICENSE.txt",
+        "destination": "third-party/licenses/anthropics-skills.txt"
+      },
+      "skills": [
+        {
+          "name": "algorithmic-art",
+          "sourcePath": "skills/algorithmic-art",
+          "hash": "sha256:494c6cd20df3607ff9e154230d34a2790cf9599c144701af423c14055eff8e4b",
+          "dependencies": [],
+          "agents": [
+            "codex",
+            "claude-code",
+            "cursor",
+            "gemini-cli",
+            "github-copilot",
+            "opencode"
+          ]
+        },
+        {
+          "name": "brand-guidelines",
+          "sourcePath": "skills/brand-guidelines",
+          "hash": "sha256:2ec87046e6e0bc6927746e20941d38428285cedc0ad3f1f187d2e0dd9c41f07c",
+          "dependencies": [],
+          "agents": [
+            "codex",
+            "claude-code",
+            "cursor",
+            "gemini-cli",
+            "github-copilot",
+            "opencode"
+          ]
+        },
+        {
+          "name": "canvas-design",
+          "sourcePath": "skills/canvas-design",
+          "hash": "sha256:0e244114c24f6da0a977ab6afcb572bb4e706c21975a0c626e0a8748a5696ce8",
+          "dependencies": [],
+          "agents": [
+            "codex",
+            "claude-code",
+            "cursor",
+            "gemini-cli",
+            "github-copilot",
+            "opencode"
+          ]
+        },
+        {
+          "name": "discernment-nudge",
+          "sourcePath": "skills/discernment-nudge",
+          "hash": "sha256:f733809b481e38aec41b8a73c1c1f9bebd9e770a45aed5ef596afd82a8fb1fbb",
+          "dependencies": [],
+          "agents": [
+            "codex",
+            "claude-code",
+            "cursor",
+            "gemini-cli",
+            "github-copilot",
+            "opencode"
+          ]
+        },
+        {
+          "name": "doc-coauthoring",
+          "sourcePath": "skills/doc-coauthoring",
+          "hash": "sha256:c4232c2a3468de408dd7c2400bca2ac670f607ea367cf8d3c012478b2725c6fe",
+          "dependencies": [],
+          "agents": [
+            "codex",
+            "claude-code",
+            "cursor",
+            "gemini-cli",
+            "github-copilot",
+            "opencode"
+          ]
+        },
+        {
+          "name": "docx",
+          "sourcePath": "skills/docx",
+          "hash": "sha256:9faf0575f44d6df01beb04a848cf1b6ed63ba408f87164545b6e672054987dfd",
+          "dependencies": [],
+          "agents": [
+            "codex",
+            "claude-code",
+            "cursor",
+            "gemini-cli",
+            "github-copilot",
+            "opencode"
+          ]
+        },
+        {
+          "name": "frontend-design",
+          "sourcePath": "skills/frontend-design",
+          "hash": "sha256:a374dd5a64a4ee3edc7cab9c7a4a74652a2e3b7b890d59f02ae1bcdec892c34c",
+          "dependencies": [],
+          "agents": [
+            "codex",
+            "claude-code",
+            "cursor",
+            "gemini-cli",
+            "github-copilot",
+            "opencode"
+          ]
+        },
+        {
+          "name": "internal-comms",
+          "sourcePath": "skills/internal-comms",
+          "hash": "sha256:c738d73eff55a9a90e344b4f403e5080be7f906973d9f47300b205550d964154",
+          "dependencies": [],
+          "agents": [
+            "codex",
+            "claude-code",
+            "cursor",
+            "gemini-cli",
+            "github-copilot",
+            "opencode"
+          ]
+        },
+        {
+          "name": "mcp-builder",
+          "sourcePath": "skills/mcp-builder",
+          "hash": "sha256:3bcb744f1a0ef6059d21193ade5d3193ad1aa6f96786df28d21e29e09115924e",
+          "dependencies": [],
+          "agents": [
+            "codex",
+            "claude-code",
+            "cursor",
+            "gemini-cli",
+            "github-copilot",
+            "opencode"
+          ]
+        },
+        {
+          "name": "pdf",
+          "sourcePath": "skills/pdf",
+          "hash": "sha256:a7beb9828ef25a50d8eba95e3ddc1a661c1c930ac40faa27dcd2c687b9e2abf9",
+          "dependencies": [],
+          "agents": [
+            "codex",
+            "claude-code",
+            "cursor",
+            "gemini-cli",
+            "github-copilot",
+            "opencode"
+          ]
+        },
+        {
+          "name": "pptx",
+          "sourcePath": "skills/pptx",
+          "hash": "sha256:455fd9fc8063027776c91193839e3152ade36668edbd2441ff48dbeb502adce8",
+          "dependencies": [],
+          "agents": [
+            "codex",
+            "claude-code",
+            "cursor",
+            "gemini-cli",
+            "github-copilot",
+            "opencode"
+          ]
+        },
+        {
+          "name": "skill-creator",
+          "sourcePath": "skills/skill-creator",
+          "hash": "sha256:1e65524b9dee0985173bd92882c41f898d0a330886c0a1c48dff8bcd5312f083",
+          "dependencies": [],
+          "agents": [
+            "codex",
+            "claude-code",
+            "cursor",
+            "gemini-cli",
+            "github-copilot",
+            "opencode"
+          ]
+        },
+        {
+          "name": "slack-gif-creator",
+          "sourcePath": "skills/slack-gif-creator",
+          "hash": "sha256:5358bec0381b1f7b2a0e5fc96d3ce52447d95a1e170cc3ddf62f90416b609950",
+          "dependencies": [],
+          "agents": [
+            "codex",
+            "claude-code",
+            "cursor",
+            "gemini-cli",
+            "github-copilot",
+            "opencode"
+          ]
+        },
+        {
+          "name": "theme-factory",
+          "sourcePath": "skills/theme-factory",
+          "hash": "sha256:f7818b308d5ea6b099ddb37e4f9f62db06be8988a0ce050bb4af19adaf0cac28",
+          "dependencies": [],
+          "agents": [
+            "codex",
+            "claude-code",
+            "cursor",
+            "gemini-cli",
+            "github-copilot",
+            "opencode"
+          ]
+        },
+        {
+          "name": "web-artifacts-builder",
+          "sourcePath": "skills/web-artifacts-builder",
+          "hash": "sha256:2013f3acd0ef9fd77196c34cad3b104ccf74110f0724d22cda9328c05fbc5f9c",
+          "dependencies": [],
+          "agents": [
+            "codex",
+            "claude-code",
+            "cursor",
+            "gemini-cli",
+            "github-copilot",
+            "opencode"
+          ]
+        },
+        {
+          "name": "webapp-testing",
+          "sourcePath": "skills/webapp-testing",
+          "hash": "sha256:120b45906c9691cd5e582283634a66061aacef84d57e379f5f219557c601a9ae",
+          "dependencies": [],
+          "agents": [
+            "codex",
+            "claude-code",
+            "cursor",
+            "gemini-cli",
+            "github-copilot",
+            "opencode"
+          ]
+        },
+        {
+          "name": "xlsx",
+          "sourcePath": "skills/xlsx",
+          "hash": "sha256:56cf1033aea2ede32c1503745d0c9daebecffff670ed9349427d40539e5dab0c",
+          "dependencies": [],
+          "agents": [
+            "codex",
+            "claude-code",
+            "cursor",
+            "gemini-cli",
+            "github-copilot",
+            "opencode"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "superpowers",
+      "repository": "https://github.com/obra/superpowers.git",
+      "trackedRef": "main",
+      "commit": "22f0b463e7a5e579904dd6211a520321035526f7",
+      "license": {
+        "spdx": "MIT",
+        "sourcePath": "LICENSE",
+        "destination": "third-party/licenses/superpowers.txt"
+      },
+      "skills": [
+        {
+          "name": "brainstorming",
+          "sourcePath": "skills/brainstorming",
+          "hash": "sha256:1c690438787d55a99dad798b410cecad6825fac950347f991a371b6bcb41b818",
+          "dependencies": [],
+          "agents": [
+            "codex",
+            "claude-code",
+            "cursor",
+            "gemini-cli",
+            "github-copilot",
+            "opencode"
+          ]
+        },
+        {
+          "name": "diagnosing-superpowers",
+          "sourcePath": "skills/diagnosing-superpowers",
+          "hash": "sha256:fca9998d4d855c46137eedf88d1854e855fa611d09216f49b661d2c1909ac0f7",
+          "dependencies": [],
+          "agents": [
+            "codex",
+            "claude-code",
+            "cursor",
+            "gemini-cli",
+            "github-copilot",
+            "opencode"
+          ]
+        },
+        {
+          "name": "dispatching-parallel-agents",
+          "sourcePath": "skills/dispatching-parallel-agents",
+          "hash": "sha256:0090f06588701dbba38e2139023eb0de434507980d549867d05afd56cf6f9ca8",
+          "dependencies": [],
+          "agents": [
+            "codex",
+            "claude-code",
+            "cursor",
+            "gemini-cli",
+            "github-copilot",
+            "opencode"
+          ]
+        },
+        {
+          "name": "finishing-a-development-branch",
+          "sourcePath": "skills/finishing-a-development-branch",
+          "hash": "sha256:c9ebf79911b9136d25b87d6bfff01c574d6c3ecba39e31e0deaa9aa8704d2e14",
+          "dependencies": [],
+          "agents": [
+            "codex",
+            "claude-code",
+            "cursor",
+            "gemini-cli",
+            "github-copilot",
+            "opencode"
+          ]
+        },
+        {
+          "name": "receiving-code-review",
+          "sourcePath": "skills/receiving-code-review",
+          "hash": "sha256:7e293582f1b16bec9c45890a381ba1077ced62b5ed6ad6db6146f234b71eec2f",
+          "dependencies": [],
+          "agents": [
+            "codex",
+            "claude-code",
+            "cursor",
+            "gemini-cli",
+            "github-copilot",
+            "opencode"
+          ]
+        },
+        {
+          "name": "requesting-code-review",
+          "sourcePath": "skills/requesting-code-review",
+          "hash": "sha256:8e33bd90a46a21faacc8c7ad30efdafbedf09214dccbf5faacee09523d686ca4",
+          "dependencies": [],
+          "agents": [
+            "codex",
+            "claude-code",
+            "cursor",
+            "gemini-cli",
+            "github-copilot",
+            "opencode"
+          ]
+        },
+        {
+          "name": "systematic-debugging",
+          "sourcePath": "skills/systematic-debugging",
+          "hash": "sha256:107d4646ccd1474da453c7bba591850f990d2eb9f2149f8187444eb3da191e97",
+          "dependencies": [],
+          "agents": [
+            "codex",
+            "claude-code",
+            "cursor",
+            "gemini-cli",
+            "github-copilot",
+            "opencode"
+          ]
+        },
+        {
+          "name": "test-driven-development",
+          "sourcePath": "skills/test-driven-development",
+          "hash": "sha256:f64417e0b42018f5e1b5854a67cc846dc2c740cdab0355c277d5bd7d0e472234",
+          "dependencies": [],
+          "agents": [
+            "codex",
+            "claude-code",
+            "cursor",
+            "gemini-cli",
+            "github-copilot",
+            "opencode"
+          ]
+        },
+        {
+          "name": "using-git-worktrees",
+          "sourcePath": "skills/using-git-worktrees",
+          "hash": "sha256:da98df7603939c29c35b0546ace4282c2536d7bbfb7709ad9f19b7ec2e1307d1",
+          "dependencies": [],
+          "agents": [
+            "codex",
+            "claude-code",
+            "cursor",
+            "gemini-cli",
+            "github-copilot",
+            "opencode"
+          ]
+        },
+        {
+          "name": "using-superpowers",
+          "sourcePath": "skills/using-superpowers",
+          "hash": "sha256:5b13b73b9c8d9654ba06d16d2ee13c5c018039e93f95813a072649b9d49326bb",
+          "dependencies": [],
+          "agents": [
+            "codex",
+            "claude-code",
+            "cursor",
+            "gemini-cli",
+            "github-copilot",
+            "opencode"
+          ]
+        },
+        {
+          "name": "verification-before-completion",
+          "sourcePath": "skills/verification-before-completion",
+          "hash": "sha256:8e0e8f8d6a362930845a3b73d3c20dcfbf0c58b840cf8f9a97105be6f36a8aad",
+          "dependencies": [],
+          "agents": [
+            "codex",
+            "claude-code",
+            "cursor",
+            "gemini-cli",
+            "github-copilot",
+            "opencode"
+          ]
+        },
+        {
+          "name": "writing-plans",
+          "sourcePath": "skills/writing-plans",
+          "hash": "sha256:3ef889f23e6712e7cca69703e4d53aeaaabfc1e23dbe649775e7dcb6429e232a",
+          "dependencies": [],
+          "agents": [
+            "codex",
+            "claude-code",
+            "cursor",
+            "gemini-cli",
+            "github-copilot",
+            "opencode"
+          ]
+        }
+      ]
     }
   ]
 }
