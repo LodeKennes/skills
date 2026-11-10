@@ -13,7 +13,7 @@
       "id": "ponytail",
       "repository": "https://github.com/DietrichGebert/ponytail.git",
       "trackedRef": "main",
-      "commit": "974d940a1c5344210874150b98ff0d2c861fab6a",
+      "commit": "96608e078b2d5ea607c5c3b8b5a54d1c1fba6846",
       "license": {
         "spdx": "MIT",
         "sourcePath": "LICENSE",
@@ -23,7 +23,7 @@
         {
           "name": "ponytail",
           "sourcePath": "skills/ponytail",
-          "hash": "sha256:00477e0e9e97b8ca7361c3534b60b16449c15af6dd881c991463dab12d915ba8",
+          "hash": "sha256:4586b838420d955f3d6ccc3a54494326e86d8cf9a91e889a37ae80a9449c0aa7",
           "dependencies": [],
           "agents": [
             "codex",
@@ -40,7 +40,7 @@
       "id": "mattpocock-skills",
       "repository": "https://github.com/mattpocock/skills.git",
       "trackedRef": "main",
-      "commit": "391a2701dd948f94f56a39f7533f8eea9a859c87",
+      "commit": "4ae2317ddb22b046e26455e4f9c9b3aaaf62212d",
       "license": {
         "spdx": "MIT",
         "sourcePath": "LICENSE",
@@ -50,7 +50,7 @@
         {
           "name": "code-review",
           "sourcePath": "skills/engineering/code-review",
-          "hash": "sha256:4ee4083282831e320d83532a72df4a09b6a889bce8602fafa65b190230bb5d1b",
+          "hash": "sha256:2b572b99b08b39625a0e61341ecbaf52c5605daf3eb0d51b26d3fce65c90b177",
           "dependencies": [],
           "agents": [
             "codex",
@@ -64,7 +64,7 @@
         {
           "name": "diagnosing-bugs",
           "sourcePath": "skills/engineering/diagnosing-bugs",
-          "hash": "sha256:9cd36c069ac552cba499e2f99e5c510c00c909a3f41d6799c1cd2ad4a4e7b427",
+          "hash": "sha256:c5ccecb48566c0a16eb1667e0f25e51f34bd22966537c9fe0eb95debeb0f99df",
           "dependencies": [],
           "agents": [
             "codex",
@@ -78,7 +78,7 @@
         {
           "name": "grill-me",
           "sourcePath": "skills/productivity/grill-me",
-          "hash": "sha256:1893fb93ff279dea2940086c99f9c08dc7b755865a67075390afe6f8a7afd6b1",
+          "hash": "sha256:f20e37d2a683f586a9347faaf9ee76b304219206301ae4141d991bce69345d81",
           "dependencies": [
             "grilling"
           ],
@@ -94,7 +94,7 @@
         {
           "name": "grilling",
           "sourcePath": "skills/productivity/grilling",
-          "hash": "sha256:581995ddd3d361b4d54a12252b39c39625dfe6ebd3173f331a764f98405215b0",
+          "hash": "sha256:0e6c97eab5e0b777119641984f18fc1a44e785c228367ee529408f6acf1dc2b5",
           "dependencies": [],
           "agents": [
             "codex",
@@ -108,7 +108,7 @@
         {
           "name": "handoff",
           "sourcePath": "skills/productivity/handoff",
-          "hash": "sha256:6c26b015ae89421711b0c425eeac6378ea6f2653c55154854a2376b082f30ffb",
+          "hash": "sha256:d8fd5d06fdb9d7d084a887d6fdce61269c046232a4c855e3361f644cc0661c44",
           "dependencies": [],
           "agents": [
             "codex",
@@ -122,7 +122,7 @@
         {
           "name": "research",
           "sourcePath": "skills/engineering/research",
-          "hash": "sha256:6d584b3e8bf4622eaa80826a14e6b5ee08abad76e13e3ea8b0218850e369e5c7",
+          "hash": "sha256:7d73caee343a0c6a6e42cddfba3d62170e9f7cfbc68f297f5dd22f6879d6e8d6",
           "dependencies": [],
           "agents": [
             "codex",
@@ -136,7 +136,7 @@
         {
           "name": "tdd",
           "sourcePath": "skills/engineering/tdd",
-          "hash": "sha256:88ed3ac6369591290ed12e64214b48922f696975ca6446d3d7c03a59a47363f2",
+          "hash": "sha256:b0ae9c2eec112c61920856e4bd44c186f86114da6a91edbb0feeed5e9082ca02",
           "dependencies": [],
           "agents": [
             "codex",
@@ -148,9 +148,9 @@
           ]
         },
         {
-          "name": "writing-great-skills",
-          "sourcePath": "skills/productivity/writing-great-skills",
-          "hash": "sha256:37830911b62a566fe6a86f9d0520e25814bba19f4b68f2291bfe79f6da1fc913",
+          "name": "writing-for-agents",
+          "sourcePath": "skills/productivity/writing-for-agents",
+          "hash": "sha256:80d37b9ae299bd0a3a6e3409f9b28598929fed054a3f2de59e7d64bd0e6c5166",
           "dependencies": [],
           "agents": [
             "codex",
@@ -167,7 +167,7 @@
       "id": "ui-ux-pro-max-skill",
       "repository": "https://github.com/nextlevelbuilder/ui-ux-pro-max-skill.git",
       "trackedRef": "main",
-      "commit": "f3ac195224eac1eb0dfe1a3059c2a6add78ffbe3",
+      "commit": "6ae86f61f520d6ca229d2f40e070410638c908c5",
       "discoveryPath": ".claude/skills",
       "license": {
         "spdx": "MIT",
@@ -192,7 +192,7 @@
         {
           "name": "brand",
           "sourcePath": ".claude/skills/brand",
-          "hash": "sha256:679e6e3e03d3025583b0655a69a5416d118d7da657a240ea6079c78be797949b",
+          "hash": "sha256:fd37ef9fa1ff11112c7d0fc8e77dfd9f88e0125c14a849f8646aed9ffda4ce6a",
           "dependencies": [],
           "agents": [
             "codex",
@@ -206,7 +206,7 @@
         {
           "name": "design",
           "sourcePath": ".claude/skills/design",
-          "hash": "sha256:3435f1b4b77274aca4c0ba765ec450bbdfd13546d647d64917e46b62c9b0ca64",
+          "hash": "sha256:c58d4833154a3f65237fc9528cd369b0e022f315e7cb96b5abc785f5855f3dca",
           "dependencies": [],
           "agents": [
             "codex",
@@ -220,7 +220,7 @@
         {
           "name": "design-system",
           "sourcePath": ".claude/skills/design-system",
-          "hash": "sha256:0a58131765a9d53dbd09543422cd1970d7be56a9aac85d5990114eb782592a67",
+          "hash": "sha256:cafda8a21c3ed45748220b56b034e097e98669b5498cd984d56be1a88dac6f8a",
           "dependencies": [],
           "agents": [
             "codex",
@@ -248,7 +248,7 @@
         {
           "name": "ui-styling",
           "sourcePath": ".claude/skills/ui-styling",
-          "hash": "sha256:1b0da0573345ca8903b6afb3c3357bfb6fd2c6b28682b100d053c602cbe09a1a",
+          "hash": "sha256:5db116f1e56b1a020fb5b7fc0932f626f6648638b3546562f37b51cf14d2900c",
           "dependencies": [],
           "agents": [
             "codex",
@@ -262,7 +262,7 @@
         {
           "name": "ui-ux-pro-max",
           "sourcePath": ".claude/skills/ui-ux-pro-max",
-          "hash": "sha256:93085d81cdf5a14466b650dbe2763f0f0ef064f624a4876db81c5cd9f6ef87e3",
+          "hash": "sha256:c79476072a1f2b63e6e92a858fa74dd46503a8ae8836b92200edbf1fda64cad1",
           "dependencies": [],
           "agents": [
             "codex",
