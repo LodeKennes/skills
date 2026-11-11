@@ -1,0 +1,3 @@
+interface:
+  display_name: "Wise Owl"
+  short_description: "Consult a stronger model when stuck"
