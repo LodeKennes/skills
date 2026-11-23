@@ -13,7 +13,7 @@
       "id": "ponytail",
       "repository": "https://github.com/DietrichGebert/ponytail.git",
       "trackedRef": "main",
-      "commit": "96608e078b2d5ea607c5c3b8b5a54d1c1fba6846",
+      "commit": "ebd8654c2c627f721eb8f9c0d1bd4090a29f9e10",
       "license": {
         "spdx": "MIT",
         "sourcePath": "LICENSE",
@@ -40,7 +40,7 @@
       "id": "mattpocock-skills",
       "repository": "https://github.com/mattpocock/skills.git",
       "trackedRef": "main",
-      "commit": "4ae2317ddb22b046e26455e4f9c9b3aaaf62212d",
+      "commit": "abeeaf95660ba9e8b7c753eb38f441ca707a8823",
       "license": {
         "spdx": "MIT",
         "sourcePath": "LICENSE",
@@ -167,7 +167,7 @@
       "id": "ui-ux-pro-max-skill",
       "repository": "https://github.com/nextlevelbuilder/ui-ux-pro-max-skill.git",
       "trackedRef": "main",
-      "commit": "6ae86f61f520d6ca229d2f40e070410638c908c5",
+      "commit": "f823ab5fb970de820e5a0626a0786aba9aee0543",
       "discoveryPath": ".claude/skills",
       "license": {
         "spdx": "MIT",
@@ -206,7 +206,7 @@
         {
           "name": "design",
           "sourcePath": ".claude/skills/design",
-          "hash": "sha256:c58d4833154a3f65237fc9528cd369b0e022f315e7cb96b5abc785f5855f3dca",
+          "hash": "sha256:0ec0dc64eb634d776f459d3d840a6447ace0ba55e18545884b310a5bea1b47f2",
           "dependencies": [],
           "agents": [
             "codex",
@@ -262,7 +262,7 @@
         {
           "name": "ui-ux-pro-max",
           "sourcePath": ".claude/skills/ui-ux-pro-max",
-          "hash": "sha256:c79476072a1f2b63e6e92a858fa74dd46503a8ae8836b92200edbf1fda64cad1",
+          "hash": "sha256:a8d3b2d27f727f7589ace2ebb9af8b6eb957bae4b490e8ed406e48e43fc48f95",
           "dependencies": [],
           "agents": [
             "codex",
@@ -279,7 +279,7 @@
       "id": "anthropics-skills",
       "repository": "https://github.com/anthropics/skills.git",
       "trackedRef": "main",
-      "commit": "2c5958ecac7cee2b583967a2c4981d0f4a75c579",
+      "commit": "e4bb5d960d87126ff3b3a8af1a104b7db67560ba",
       "license": {
         "spdx": "Apache-2.0",
         "sourcePath": "skills/academy-guide/LICENSE.txt",
@@ -359,7 +359,7 @@
         {
           "name": "docx",
           "sourcePath": "skills/docx",
-          "hash": "sha256:9faf0575f44d6df01beb04a848cf1b6ed63ba408f87164545b6e672054987dfd",
+          "hash": "sha256:a6002e9a3e8650ecedc46e438a73967a937ecd7e209b00b0c649434ad7b0ca07",
           "dependencies": [],
           "agents": [
             "codex",
@@ -415,7 +415,7 @@
         {
           "name": "pdf",
           "sourcePath": "skills/pdf",
-          "hash": "sha256:a7beb9828ef25a50d8eba95e3ddc1a661c1c930ac40faa27dcd2c687b9e2abf9",
+          "hash": "sha256:b78dfe5bf445db3c1cb8ee19d586192821e59f70b9bee0075fe8319b38b555e9",
           "dependencies": [],
           "agents": [
             "codex",
@@ -429,7 +429,7 @@
         {
           "name": "pptx",
           "sourcePath": "skills/pptx",
-          "hash": "sha256:455fd9fc8063027776c91193839e3152ade36668edbd2441ff48dbeb502adce8",
+          "hash": "sha256:c70bdd3fe7ea3f884b2ddf529ad6e5b119c3bfb56a5ae02f8e14f302809ee814",
           "dependencies": [],
           "agents": [
             "codex",
@@ -513,7 +513,7 @@
         {
           "name": "xlsx",
           "sourcePath": "skills/xlsx",
-          "hash": "sha256:56cf1033aea2ede32c1503745d0c9daebecffff670ed9349427d40539e5dab0c",
+          "hash": "sha256:b5c3477c040b10fdcb03a2b8e5992ac251b0480aa655bf8dd0d7e7253b6fee77",
           "dependencies": [],
           "agents": [
             "codex",
